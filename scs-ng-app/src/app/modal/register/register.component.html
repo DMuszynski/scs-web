@@ -1,0 +1,81 @@
+<!--Register Modal-->
+<app-modal class="form-dark" role="document">
+  <!--Title-->
+  <header modal-name>
+    <strong>ZAREJESTRUJ</strong>
+    <span class="blue-text font-weight-bold">
+      <strong> SIĘ</strong>
+    </span>
+  </header>
+  <!--/.Title-->
+  <!--Content-->
+  <main modal-body>
+    <!--Error Message-->
+    <ng-container *ngIf="isInvalidRegister">
+      <h6 class="text-center red-text font-weight-bold pb-4">
+        {{responseMessage}}
+      </h6>
+    </ng-container>
+    <!--/.Error Message-->
+    <!--Success Message-->
+    <ng-container *ngIf="isValidRegister">
+      <h6 class="text-center green-text font-weight-bold pb-4">
+        {{responseMessage}}
+      </h6>
+    </ng-container>
+    <!--Register Form-->
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+      <!--Nick-->
+      <div class="md-form mb-5">
+        <mdb-icon fas icon="user" class="prefix"></mdb-icon>
+        <input type="text" id="nick" class="form-control white-text" mdbValidate mdbInput [formControl]="registerFormModalNick">
+        <label for="nick">Nazwa użytkownika</label>
+        <mdb-error *ngIf="registerFormModalNick.invalid && (registerFormModalNick.dirty || registerFormModalNick.touched)">
+          Podana nazwa użytkownika jest nieprawidłowa
+        </mdb-error>
+        <mdb-success *ngIf="registerFormModalNick.valid && (registerFormModalNick.dirty || registerFormModalNick.touched)">
+          Podana nazwa użytkownika spełnia wymagania
+        </mdb-success>
+      </div>
+      <!--/.Nick-->
+      <!--Email-->
+      <div class="md-form mb-5">
+        <mdb-icon fas icon="envelope" class="prefix"></mdb-icon>
+        <input type="email" id="email" class="form-control white-text" mdbValidate mdbInput [formControl]="registerFormModalEmail">
+        <label for="email">Email</label>
+        <mdb-error *ngIf="registerFormModalEmail.invalid && (registerFormModalEmail.dirty || registerFormModalEmail.touched)">
+          Podany adres email jest nieprawidłowy
+        </mdb-error>
+        <mdb-success *ngIf="registerFormModalEmail.valid && (registerFormModalEmail.dirty || registerFormModalEmail.touched)">
+          Podany adres email spełnia wymagania
+        </mdb-success>
+      </div>
+      <!--/.Email-->
+      <!--Password-->
+      <div class="md-form pb-3">
+        <mdb-icon fas icon="lock" class="prefix"></mdb-icon>
+        <input type="password" id="password" autocomplete="on" class="form-control white-text" mdbValidate mdbInput [formControl]="registerFormModalPassword">
+        <label for="password">Hasło</label>
+        <mdb-error *ngIf="registerFormModalPassword.invalid && (registerFormModalPassword.dirty || registerFormModalPassword.touched)">
+          Podane hasło jest za krótkie
+        </mdb-error>
+        <mdb-success *ngIf="registerFormModalPassword.valid && (registerFormModalPassword.dirty || registerFormModalPassword.touched)">
+          Podane hasło spełnia wymagania
+        </mdb-success>
+      </div>
+      <!--/.Password-->
+      <!--Register button-->
+      <div class="row d-flex align-items-center mb-4">
+        <div class="text-center mb-3 col-md-12">
+          <button type="submit" mdbBtn block="true" class="waves-light btn-blue" [ngStyle]="{'border-radius': '40px'}" mdbWavesEffect>
+            <mdb-icon fas icon="users" class="px-1"></mdb-icon> Rejestracja<span class="sr-only">(current)</span>
+          </button>
+        </div>
+      </div>
+      <!--/.Register button-->
+    </form>
+    <!--/.Register Form-->
+  </main>
+  <!--/.Content-->
+</app-modal>
+<!--/.Register Modal-->

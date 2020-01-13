@@ -1,0 +1,9 @@
+.form-dark .md-form label {
+  color: #fff !important;
+}
+.form-dark input[type=email]:focus:not([readonly]) + label {
+  color: #fff;
+}
+.form-dark input[type=password]:focus:not([readonly]) + label{
+  color: #fff !important;
+}

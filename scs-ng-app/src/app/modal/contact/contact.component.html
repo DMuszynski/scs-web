@@ -1,0 +1,83 @@
+<!--Contact Modal-->
+<app-modal class="form-dark" role="document">
+  <!--Title-->
+  <header modal-name>
+    <strong>SKONTAKTUJ</strong>
+    <span class="blue-text font-weight-bold">
+      <strong> SIĘ</strong>
+    </span>
+  </header>
+  <!--/.Title-->
+  <!--Content-->
+  <main modal-body>
+    <!--Error Message-->
+    <ng-container *ngIf="isInvalidContact">
+      <h6 class="text-center red-text font-weight-bold pb-4">
+        {{responseMessage}}
+      </h6>
+    </ng-container>
+    <!--/.Error Message-->
+    <!--Success Message-->
+    <ng-container *ngIf="isValidContact">
+      <h6 class="text-center green-text font-weight-bold pb-4">
+        {{responseMessage}}
+      </h6>
+    </ng-container>
+    <!--Register Form-->
+    <!--Contact Form-->
+    <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+      <!--Email-->
+      <div class="md-form mb-5">
+        <mdb-icon fas icon="envelope" class="prefix"></mdb-icon>
+        <input type="email" id="email" class="form-control white-text" mdbValidate mdbInput [formControl]="contactFormModalEmailFrom">
+        <label for="email">Twój email</label>
+        <mdb-error *ngIf="contactFormModalEmailFrom.invalid &&(contactFormModalEmailFrom.dirty || contactFormModalEmailFrom.touched)">
+          Podany adres email jest nieprawidłowy
+        </mdb-error>
+        <mdb-success *ngIf="contactFormModalEmailFrom.valid && (contactFormModalEmailFrom.dirty || contactFormModalEmailFrom.touched)">
+          Podany adres email spełnia wymagania
+        </mdb-success>
+      </div>
+      <!--/.Email-->
+      <!--Subject-->
+      <div class="md-form mb-5">
+        <mdb-icon fas icon="tag" class="prefix"></mdb-icon>
+        <input type="text" id="subject" class="form-control white-text" mdbValidate mdbInput [formControl]="contactFormModalSubject">
+        <label for="subject">Temat wiadomości</label>
+        <mdb-error *ngIf="contactFormModalSubject.invalid && (contactFormModalSubject.dirty || contactFormModalSubject.touched)">
+          Podany temat wiadomości jest nieprawidłowy
+        </mdb-error>
+        <mdb-success *ngIf="contactFormModalSubject.valid && (contactFormModalSubject.dirty || contactFormModalSubject.touched)">
+          Podany temat wiadomości spełnia wymagania
+        </mdb-success>
+      </div>
+      <!--/.Subject-->
+      <!--Message-->
+      <div class="md-form mb-5">
+        <mdb-icon fas icon="pencil-alt" class="prefix"></mdb-icon>
+        <textarea type="text" id="message" class="md-textarea form-control white-text" rows="3" mdbInput mdbValidate
+                  [formControl]="contactFormModalContent"></textarea>
+        <label for="message">Twoja wiadomość</label>
+        <mdb-error *ngIf="contactFormModalContent.invalid && (contactFormModalContent.dirty || contactFormModalContent.touched)">
+          Podana wiadomość jest nieprawidłowa
+        </mdb-error>
+        <mdb-success *ngIf="contactFormModalContent.valid && (contactFormModalContent.dirty || contactFormModalContent.touched)">
+          Podana wiadomość spełnia wymagania
+        </mdb-success>
+      </div>
+      <!--/.Message-->
+      <!--Submit form-->
+      <div class="row d-flex align-items-center mb-4">
+        <div class="text-center mb-3 col-md-12">
+          <button type="submit" mdbBtn block="true" class="z-depth-1 waves-light btn-blue" [ngStyle]="{'border-radius': '40px'}" mdbWavesEffect>
+            Wyślij <mdb-icon far icon="paper-plane" class="ml-1"></mdb-icon>
+          </button>
+        </div>
+      </div>
+      <!--/.Submit form-->
+    </form>
+    <!--/.Contact Form-->
+  </main>
+  <!--/.Content-->
+</app-modal>
+<!--Contact Modal-->

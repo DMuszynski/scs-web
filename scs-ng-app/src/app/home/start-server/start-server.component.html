@@ -1,0 +1,48 @@
+<!--Section Start Server-->
+<section class="jarallax" style="background-image: url('../../../assets/other/modal.jpg');">
+  <div class="mask rgba-black-strong flex-center">
+    <!--Content-->
+    <div class="text-center text-white wow fadeIn" data-wow-delay="0.4s" style="visibility: visible; animation-name: fadeIn; animation-delay: 0.4s;">
+      <!-- Title -->
+      <h2 class="font-weight-bold mb-3 pt-4 mt-4">Oficjalny start serwera SCS</h2>
+      <!--/.Title-->
+      <!--Start server date-->
+      <p class="font-weight-bold grey-text">{{startServerDate | date:'dd/MM/yyyy, hh:mm a'}}</p>
+      <!--/.Start server date-->
+      <!--Time to start row-->
+      <div class="row mt-5 mb-5">
+        <!--First column (days)-->
+        <div class="col-lg-4 col-md-4">
+          <hr class="white mx-5">
+          <h1 class="display-4 font-weight-bold white-text">
+            <strong>{{ dayToStart() }}</strong>
+          </h1>
+          <hr class="white mx-5">
+          <p class="font-weight-bold spacing"> DNI</p>
+        </div>
+        <!--/.First column (days)-->
+        <!--Second column (hours)-->
+        <div class="col-lg-4 col-md-4">
+          <h1 class="display-4 font-weight-bold white-text rgba-white-light mx-4 py-3 mt-3">
+            <strong>{{ hourToStart() }}</strong>
+          </h1>
+          <p class="font-weight-bold spacing pt-3"> GODZINY</p>
+        </div>
+        <!--/.Second column (hours)-->
+        <!--Third column (min)-->
+        <div class="col-lg-4 col-md-4">
+          <hr class="white mx-5">
+          <h1 class="display-4 font-weight-bold white-text">
+            <strong>{{ minToStart() }}</strong>
+          </h1>
+          <hr class="white mx-5">
+          <p class="font-weight-bold spacing"> MINUTY</p>
+        </div>
+        <!--/.Third column (min)-->
+      </div>
+      <!--/.Time to start row-->
+    </div>
+    <!--/.Content-->
+  </div>
+</section>
+<!--/.Section Start Server-->

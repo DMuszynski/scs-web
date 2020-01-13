@@ -1,0 +1,33 @@
+<!--Header Intro-->
+<header class="view jarallax" [style.backgroundImage]="backgroundImageUrl" [style.height]="height">
+  <div class="full-bg-img mask rgba-black-strong">
+    <!--Content-->
+    <div class="container h-100 d-flex align-items-center">
+      <div class="row smooth-scroll">
+        <div class="col-md-12 white-text text-center">
+          <div class="wow fadeInDown" data-wow-delay="0.2s" style="visibility: visible; animation-name: fadeInDown; animation-delay: 0.2s;">
+            <!--Title-->
+            <h1 class="display-4 text-uppercase rgba-black-light px-3 py-2">
+              <strong class="font-weight-bold">
+                <ng-content select="[intro-header]"></ng-content>
+              </strong>
+            </h1>
+            <!--/.Title-->
+            <!--Subtitle-->
+            <h4 class="subtext-header mt-4 mb-5">
+              <ng-content select="[intro-subtext]"></ng-content>
+            </h4>
+            <!--/.Subtitle-->
+            <!--Download button-->
+            <button mdbBtn class="btn btn-blue" mdbWavesEffect [ngStyle]="{'border-radius': '40px'}" (click)="openDownloadModal()">
+              <mdb-icon fas icon="download" class="px-1"></mdb-icon> Pobierz klienta<span class="sr-only">(current)</span>
+            </button>
+            <!--/.Download button-->
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--/.Content-->
+  </div>
+</header>
+<!--/.Header Intro-->

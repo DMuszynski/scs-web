@@ -1,0 +1,79 @@
+<!--Ranking-->
+<div>
+  <!--Header-->
+  <header>
+    <!--Navbar-->
+    <app-navbar></app-navbar>
+    <!--/.Navbar-->
+    <!--Intro-->
+    <app-intro height="100vh" backgroundImageUrl="url('/../../assets/intro/ranking.jpg')">
+      <div intro-header>Ranking najlepszych zawodników</div>
+      <div intro-subtext>Nie ma cię w rankingu, a może jeszcze nie masz klienta</div>
+    </app-intro>
+    <!--/.Intro-->
+  </header>
+  <!--/.Header-->
+  <!--Content-->
+  <main class="container py-5 px-4">
+    <!--Title Section-->
+    <section class="wow fadeIn" data-wow-delay="0.2s" style="visibility: visible; animation-name: fadeIn; animation-delay: 0.2s;">
+      <h2 class="text-uppercase text-center font-weight-bold pt-3">
+        <strong>Ranking</strong>
+      </h2>
+      <!-- Opis nagłówka -->
+      <p class="text-center text-uppercase font-weight-bold grey-text mb-3 pb-2 wow fadeIn" data-wow-delay="0.2s" style="visibility: visible; animation-name: fadeIn; animation-delay: 0.2s;">
+        <i class="fas fa-trophy blue-text mr-2" aria-hidden="true"></i>
+        Najlepsi gracze
+      </p>
+    </section>
+    <!--/.Title Section-->
+    <!--Ranking Table Section-->
+    <section>
+      <!--Search-->
+      <div class="row wow fadeIn" data-wow-delay="0.2s" style="visibility: visible; animation-name: fadeIn; animation-delay: 0.2s;">
+        <div class="col-md-4 offset-md-8">
+          <div class="md-form my-3">
+            <input type="text" [(ngModel)]="searchText" class="form-control" id="search" mdbInput>
+            <label for="search">Wyszukaj</label>
+          </div>
+        </div>
+      </div>
+      <!--/.Search-->
+      <!--Ranking table-->
+      <table mdbTable #tableEl="mdbTable" class="z-depth-1 text-center bg-white wow fadeIn" data-wow-delay="0.2s" style="visibility: visible; animation-name: fadeIn; animation-delay: 0.2s;">
+        <thead class="unique-color-dark text-white">
+        <tr>
+          <th *ngFor="let head of headElements" scope="col">
+            <strong>{{head}}</strong></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let ch of characters; let i = index">
+          <th *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex"
+              scope="row">{{calculateRankPosition(ch.score)}}</th>
+          <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{ch.name}}</td>
+          <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{ch.score}}</td>
+        </tr>
+        </tbody>
+        <tfoot class="w-100" style="background-color: #00000008">
+        <tr>
+          <td colspan="4">
+            <mdb-table-pagination [tableEl]="tableEl" [searchDataSource]="characters"></mdb-table-pagination>
+          </td>
+        </tr>
+        </tfoot>
+      </table>
+      <!--/.Ranking table-->
+    </section>
+    <!--Ranking Table Section-->
+  </main>
+  <!--/.Content-->
+  <!--Footer-->
+  <footer>
+    <!--Footer section-->
+    <app-footer></app-footer>
+    <!--/.Footer section-->
+  </footer>
+  <!--/.Footer-->
+</div>
+<!--/.Ranking-->

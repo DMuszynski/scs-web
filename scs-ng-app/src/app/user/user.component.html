@@ -1,0 +1,364 @@
+<!--User-->
+<div>
+  <!--Header-->
+  <header>
+    <!--Navbar-->
+    <app-navbar></app-navbar>
+    <!--/.Navbar-->
+    <!--Intro-->
+    <app-intro height="100vh" backgroundImageUrl="url('/../../assets/intro/profile.jpg')">
+      <div intro-header>Witaj ponownie {{user.nick}} w serwisie</div>
+      <div intro-subtext>Jeżeli jeszcze nie pobrałeś klienta, możesz to zrobić teraz</div>
+    </app-intro>
+    <!--/.Intro-->
+  </header>
+  <!--/.Header-->
+  <!--Content-->
+  <main class="container py-5 px-4">
+    <!--Profile title-->
+    <section>
+      <h2 class="text-uppercase font-weight-bold pb-4 pt-3">
+        <strong> Profil Użytkownika</strong>
+      </h2>
+    </section>
+    <!--/.Profile title-->
+    <!--Card (Account)-->
+    <app-card>
+      <!--Title-->
+      <div card-header>
+        KONTO <mdb-icon fas icon="user-circle"></mdb-icon>
+      </div>
+      <!--/.Title-->
+      <!--Card body-->
+      <div card-body>
+        <!--Name row-->
+        <div class="row text-center">
+          <!--First column-->
+          <div class="col align-self-start">Nick</div>
+          <!--/.First column-->
+          <!--Second column-->
+          <div class="col align-self-end">{{user.nick}}</div>
+          <!--/.Second column-->
+        </div>
+        <!--/.Name row-->
+        <!--Email row-->
+        <div class="row text-center mt-2">
+          <!--First column-->
+          <div class="col align-self-start">Email</div>
+          <!--/.First column-->
+          <!--Second column-->
+          <div class="col align-self-end">{{user.email}}</div>
+          <!--/.Second column-->
+        </div>
+        <!--/.Email row-->
+        <!--Created date row-->
+        <div class="row text-center mt-2">
+          <!--First column-->
+          <div class="col align-self-start">Data utworzenia</div>
+          <!--/.First column-->
+          <!--Second column-->
+          <div class="col align-self-end">{{user.created | date:'yyyy-MM-dd HH:mm'}}</div>
+          <!--/.Second column-->
+        </div>
+        <!--/.Created date row-->
+        <!--Currency row-->
+        <div class="row text-center mt-2">
+          <!--First column-->
+          <div class="col align-self-start">Waluta Premium</div>
+          <!--/.First column-->
+          <!--Second column-->
+          <div class="col align-self-end">{{user.premiumCurrency}}</div>
+          <!--/.Second column-->
+        </div>
+        <!--/.Currency row-->
+        <!--Delete user row-->
+        <div class="row text-center mt-2">
+          <!--First column-->
+          <div class="col align-self-start">Usuń konto</div>
+          <!--/.First column-->
+          <!--Second column-->
+          <div class="col align-self-end">
+            <a class="blue-text" (click)="deleteAccount()">
+              <strong><mdb-icon fas icon="trash-alt"></mdb-icon> Usuń</strong></a>
+          </div>
+          <!--/.Second column-->
+        </div>
+        <!--/.Delete user row-->
+      </div>
+      <!--/.Card body-->
+    </app-card>
+    <!--/.Card (Account)-->
+
+    <!--Characters title-->
+    <section>
+      <h2 class="text-uppercase font-weight-bold pb-4 pt-5">
+        <strong> Twoje Postacie</strong>
+      </h2>
+    </section>
+    <!--/.Characters title-->
+    <!--Card (Characters)-->
+    <app-card>
+      <div card-header>
+        POSTACIE <mdb-icon fas icon="swimmer"></mdb-icon>
+      </div>
+      <div card-body>
+        <ng-container *ngIf="characters.length > 0; else noCharacters">
+          <table mdbTable #tableEl="mdbTable" class="z-depth-1 text-center bg-white wow fadeIn" data-wow-delay="0.2s" style="visibility: visible; animation-name: fadeIn; animation-delay: 0.2s;">
+            <thead class="unique-color-dark text-white">
+            <tr>
+              <th scope="col"><strong>Id</strong></th>
+              <th scope="col"><strong>Nazwa Postaci</strong></th>
+              <th scope="col"><strong>Wynik</strong></th>
+              <th scope="col"><strong>Data Utworzenia</strong></th>
+              <th scope="col"><strong>Usuń Postać</strong></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let ch of characters; let i = index">
+              <th scope="row">{{i + 1}}</th>
+              <td>{{ch.name}}</td>
+              <td>{{ch.score}}</td>
+              <td>{{ch.created | date:'yyyy-MM-dd HH:mm'}}</td>
+              <td>
+                <a class="blue-text" (click)="deleteCharacter(ch.id)">
+                  <strong><mdb-icon fas icon="trash-alt"></mdb-icon> Usuń</strong>
+                </a>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </ng-container>
+        <ng-template #noCharacters>
+          <h6 class="text-center">Nie masz żadnej postaci !</h6>
+        </ng-template>
+      </div>
+    </app-card>
+    <!--/.Card (Characters)-->
+
+    <!--Edit user title-->
+    <section>
+      <h2 class="text-uppercase font-weight-bold pb-4 pt-5">
+        <strong> Edycja użytkownika</strong>
+      </h2>
+    </section>
+    <!--/.Edit user title-->
+    <!--Edit user row-->
+    <div class="row">
+      <!--First column-->
+      <div class="col col-example">
+        <!--Card (Nick)-->
+        <app-card>
+          <!--Title-->
+          <div card-header>
+            NAZWA GRACZA <mdb-icon fas icon="keyboard"></mdb-icon>
+          </div>
+          <!--/.Title-->
+          <!--Card row-->
+          <div card-first-column>Nick</div>
+          <div card-second-column>{{user.nick}}</div>
+          <div card-third-column>
+            <a class="blue-text" (click)="nick.toggle()">
+              <strong><mdb-icon fas icon="pencil-alt"></mdb-icon> ZMIEŃ</strong></a>
+          </div>
+          <!--/.Card row-->
+          <!--Card body-->
+          <div card-body mdbCollapse #nick="bs-collapse" style="width: 100%">
+            <!--Error Message-->
+            <ng-container *ngIf="!isValidNick">
+              <h6 class="text-center red-text font-weight-bold pt-5">
+                {{errorNick}}
+              </h6>
+            </ng-container>
+            <!--/.Error Message-->
+            <!--Change nick form-->
+            <form class="mt-5 px-5 mx-5" [formGroup]="nickForm" (ngSubmit)="updateNick()">
+              <div class="md-form">
+                <mdb-icon fas icon="user" class="prefix"></mdb-icon>
+                <input type="text" id="name" value="{{user.nick}}" class="form-control" mdbInput [formControl]="updateUserNickForm">
+                <label for="name">Nick</label>
+                <mdb-error style="top:40px; bottom:unset" *ngIf="(updateUserNickForm.invalid || (updateUserNickForm.value == user.nick)) && (updateUserNickForm.dirty || updateUserNickForm.touched)">
+                  Nieprawidłowy nick
+                </mdb-error>
+                <mdb-success style="top:40px; bottom:unset" *ngIf="(updateUserNickForm.valid && (updateUserNickForm.value != user.nick)) && (updateUserNickForm.dirty || updateUserNickForm.touched)">
+                  Prawidłowy nick
+                </mdb-success>
+                <button type="submit" mdbBtn class="z-depth-1 btn-block btn-blue mt-4" [ngStyle]="{'border-radius': '40px'}" mdbWavesEffect>
+                  Zmień Nick <mdb-icon far icon="paper-plane"></mdb-icon>
+                </button>
+              </div>
+            </form>
+            <!--/.Change nick form-->
+          </div>
+          <!--/.Card body-->
+        </app-card>
+        <!--Card (Nick)-->
+      </div>
+      <!--/.First column-->
+      <!--Second column-->
+      <div class="col col-example">
+        <!--Card (Password)-->
+        <app-card>
+          <!--Title-->
+          <div card-header>
+            Hasło <mdb-icon fas icon="lock"></mdb-icon>
+          </div>
+          <!--/.Title-->
+          <!--Card row-->
+          <div card-first-column>Hasło</div>
+          <div card-second-column>******</div>
+          <div card-third-column>
+            <a class="blue-text" (click)="password.toggle()">
+              <strong><mdb-icon fas icon="pencil-alt"></mdb-icon> ZMIEŃ</strong></a>
+          </div>
+          <!--/.Card row-->
+          <!--Card body-->
+          <div card-body mdbCollapse #password="bs-collapse" style="width: 100%">
+            <!--Error Message-->
+            <ng-container *ngIf="!isValidPassword">
+              <h6 class="text-center red-text font-weight-bold pt-5">
+                {{errorPassword}}
+              </h6>
+            </ng-container>
+            <!--/.Error Message-->
+            <!--Change password form-->
+            <form class="mt-5 px-5 mx-5" [formGroup]="passwordForm" (ngSubmit)="updatePassword()">
+              <div class="md-form">
+                <mdb-icon fas icon="lock" class="prefix"></mdb-icon>
+                <input type="password" id="password" autocomplete="on" class="form-control" mdbInput [formControl]="updateUserPasswordForm">
+                <label for="password">Hasło</label>
+                <mdb-error style="top:40px; bottom:unset" *ngIf="(updateUserPasswordForm.invalid || (updateUserPasswordForm.value == user.password)) && (updateUserPasswordForm.dirty || updateUserPasswordForm.touched)">
+                  Nieprawidłowe hasło
+                </mdb-error>
+                <mdb-success style="top:40px; bottom:unset" *ngIf="(updateUserPasswordForm.valid && (updateUserPasswordForm.value != user.password)) && (updateUserPasswordForm.dirty || updateUserPasswordForm.touched)">
+                  Prawidłowe hasło
+                </mdb-success>
+                <button type="submit" mdbBtn class="z-depth-1 btn-block btn-blue mt-4" [ngStyle]="{'border-radius': '40px'}" mdbWavesEffect>
+                  Zmień Hasło <mdb-icon far icon="paper-plane"></mdb-icon>
+                </button>
+              </div>
+            </form>
+            <!--/.Change password form-->
+          </div>
+          <!--/.Card body-->
+        </app-card>
+        <!--/.Card (Password)-->
+      </div>
+      <!--/.second column-->
+      <div class="w-100"></div>
+      <!--Third column-->
+      <div class="col col-example">
+        <!--Card (Email)-->
+        <app-card>
+          <!--Title-->
+          <div card-header>
+            EMAIL <mdb-icon fas icon="envelope"></mdb-icon>
+          </div>
+          <!--/.Title-->
+          <!--Card row-->
+          <div card-first-column>Email</div>
+          <div card-second-column>{{user.email}}</div>
+          <div card-third-column>
+            <a class="blue-text" (click)="email.toggle()">
+              <strong><mdb-icon fas icon="pencil-alt"></mdb-icon> ZMIEŃ</strong></a>
+          </div>
+          <!--/.Card row-->
+          <!--Card body-->
+          <div card-body mdbCollapse #email="bs-collapse" style="width: 100%">
+            <!--Error Message-->
+            <ng-container *ngIf="!isValidEmail">
+              <h6 class="text-center red-text font-weight-bold pt-5">
+                {{errorEmail}}
+              </h6>
+            </ng-container>
+            <!--/.Error Message-->
+            <!--Change email form-->
+            <form class="mt-5 px-5 mx-5" [formGroup]="emailForm" (ngSubmit)="updateEmail()">
+              <div class="md-form">
+                <mdb-icon fas icon="envelope" class="prefix"></mdb-icon>
+                <input type="text" id="email" value="{{user.email}}" class="form-control" mdbInput [formControl]="updateUserEmailForm">
+                <label for="email">Adres email</label>
+                <mdb-error style="top:40px; bottom:unset" *ngIf="(updateUserEmailForm.invalid || (updateUserEmailForm.value == user.email)) && (updateUserEmailForm.dirty || updateUserEmailForm.touched)">
+                  Nieprawidłowy email
+                </mdb-error>
+                <mdb-success style="top:40px; bottom:unset" *ngIf="(updateUserEmailForm.valid && (updateUserEmailForm.value != user.email)) && (updateUserEmailForm.dirty || updateUserEmailForm.touched)">
+                  Prawidłowy email
+                </mdb-success>
+                <button type="submit" mdbBtn class="z-depth-1 btn-block btn-blue mt-4" [ngStyle]="{'border-radius': '40px'}" mdbWavesEffect>
+                  Zmień Email <mdb-icon far icon="paper-plane"></mdb-icon>
+                </button>
+              </div>
+            </form>
+            <!--/.Change email form-->
+          </div>
+          <!--/.Card body-->
+        </app-card>
+        <!--/.Card (Email)-->
+      </div>
+      <!--/.Third column-->
+    </div>
+    <!--/.Edit user row-->
+
+    <!--Premium currency title-->
+    <section>
+      <h2 class="text-uppercase font-weight-bold pb-4 pt-5">
+        <strong> Waluta premium</strong>
+      </h2>
+    </section>
+    <!--/.Premium currency title-->
+    <!--Card (Premium currency)-->
+    <app-card>
+      <!--Title-->
+      <div card-header>
+        WALUTA PREMIUM <mdb-icon fas icon="credit-card"></mdb-icon>
+      </div>
+      <!--Title-->
+      <!--Card row-->
+      <div card-first-column>Ilość</div>
+      <div card-second-column>{{user.premiumCurrency}}</div>
+      <div card-third-column>
+        <a class="blue-text" (click)="currency.toggle()">
+          <strong><mdb-icon fas icon="credit-card"></mdb-icon> ZAKUP</strong></a>
+      </div>
+      <!--/.Card row-->
+      <!--Card body-->
+      <div card-body mdbCollapse #currency="bs-collapse" style="width: 100%">
+        <!--Payment-->
+        <div class="row text-center mt-3">
+          <div class="col align-self-start">Metoda Płatności</div>
+          <div class="col align-self-center">PayPal</div>
+          <div class="col align-self-end"></div>
+        </div>
+        <!--/.Payment-->
+        <!--Buy premium currency form-->
+        <form class="mt-5 px-5 mx-5" [formGroup]="purchaseForm" (ngSubmit)="purchasePremiumCurrency()">
+          <div class="md-form">
+            <mdb-icon fas icon="dollar-sign" class="prefix"></mdb-icon>
+            <input mdbInput type="number" id="currency" value="{{0}}" min="0" max="500" class="form-control" [formControl]="updateUserPurchaseForm">
+            <label for="currency">USD</label>
+            <mdb-error style="top:40px; bottom:unset" *ngIf="updateUserPurchaseForm.invalid && (updateUserPurchaseForm.dirty || updateUserPurchaseForm.touched)">
+              Nieprawidłowa ilość
+            </mdb-error>
+            <mdb-success style="top:40px; bottom:unset" *ngIf="(updateUserPurchaseForm.valid) && (updateUserNickForm.dirty || updateUserNickForm.touched)">
+              Prawidłowa ilość
+            </mdb-success>
+            <button type="submit" mdbBtn class="z-depth-1 btn-block btn-blue mt-4" [ngStyle]="{'border-radius': '40px'}" mdbWavesEffect>
+              Zakup <mdb-icon far icon="credit-card"></mdb-icon>
+            </button>
+          </div>
+        </form>
+        <!--/.Buy premium currency form-->
+      </div>
+      <!--/.Card body-->
+    </app-card>
+    <!--/.Card (Premium currency)-->
+  </main>
+  <!--/.Content-->
+  <!--Footer-->
+  <footer>
+    <!--Footer Section-->
+    <app-footer></app-footer>
+    <!--/.Footer Section-->
+  </footer>
+  <!--Footer-->
+</div>
+<!--/.User-->

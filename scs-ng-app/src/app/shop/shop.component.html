@@ -1,0 +1,111 @@
+<!--Shop-->
+<div>
+  <!--Header-->
+  <header>
+    <!--Navbar-->
+    <app-navbar></app-navbar>
+    <!--/.Navbar-->
+    <!--Intro-->
+    <app-intro height="100vh" backgroundImageUrl="url('/../../assets/intro/shop.jpg')">
+      <div intro-header>Witamy cię w sklepie serwisu SCS</div>
+      <div intro-subtext>Jeżeli jeszcze nie pobrałeś klienta, możesz to zrobić teraz</div>
+    </app-intro>
+    <!--/.Intro-->
+  </header>
+  <!--/.Header-->
+  <!--Content-->
+  <main class="container py-5 px-4">
+    <!--Title Section-->
+    <section class="wow fadeIn text-center text-uppercase font-weight-bold" data-wow-delay="0.2s" style="visibility: visible; animation-name: fadeIn; animation-delay: 0.2s;">
+      <h2 class="font-weight-bold pt-3"><strong>Sklep</strong></h2>
+      <p class="grey-text mb-3 pb-2 wow fadeIn" data-wow-delay="0.2s" style="visibility: visible; animation-name: fadeIn; animation-delay: 0.2s;">
+        <i class="fas fa-shopping-cart blue-text mr-2" aria-hidden="true"></i> Znajdź coś dla siebie
+      </p>
+    </section>
+    <!--/.Title Section-->
+    <!--Item Table Section-->
+    <section>
+      <!--Filter-->
+      <div class="row wow fadeIn" data-wow-delay="0.2s" style="visibility: visible; animation-name: fadeIn; animation-delay: 0.2s;">
+        <!--Category-->
+        <div class="col-md-4">
+          <div class="md-form my-3">
+            <select class="browser-default custom-select" [(ngModel)]="selectedValue" (change)="getSelectedValue()">
+              <option value=0>Wszystkie</option>
+              <option *ngFor="let category of categories;" value ={{category.id}}>{{category.name}}</option>
+            </select>
+          </div>
+        </div>
+        <!--/.Category-->
+        <!--Search-->
+        <div class="col-md-4 offset-md-4">
+          <div class="md-form my-3">
+            <input type="text" [(ngModel)]="searchText" class="form-control" id="search" mdbInput>
+            <label for="search">Wyszukaj</label>
+          </div>
+        </div>
+        <!--/.Search-->
+      </div>
+      <!--/.Filter-->
+      <!--Items Table-->
+      <div class="card">
+        <div class="card-body">
+          <!--Table-->
+          <div class="table-responsive text-center">
+            <table mdbTable #tableEl="mdbTable" id="productTable" class="table product-table table-hover table-fixed">
+              <!--Header table-->
+              <thead class="unique-color-dark text-white">
+                <tr>
+                  <th style="width: 100px;">PRODUKT</th>
+                  <th style="width: 100px;" [mdbTableSort]="items" sortBy="name">NAZWA <mdb-icon fas icon="sort"></mdb-icon></th>
+                  <th style="width: 100px;" [mdbTableSort]="items" sortBy="description">OPIS <mdb-icon fas icon="sort"></mdb-icon></th>
+                  <th style="width: 100px;" [mdbTableSort]="items" sortBy="prize">CENA <mdb-icon fas icon="sort"></mdb-icon></th>
+                  <th style="width: 100px;">ZAKUP</th>
+                </tr>
+              </thead>
+              <!--/.Header table-->
+              <!--Body table-->
+              <tbody>
+                <tr *ngFor="let p of products; let i = index">
+                  <td class="middle-align" *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">
+                    <img src="../../assets/products/{{p.name}}.jpg" alt="" class="img-fluid z-depth-0">
+                  </td>
+                  <td class="middle-align" *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">
+                    {{p.name}}</td>
+                  <td class="middle-align" *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">
+                    {{p.description}}</td>
+                  <td class="middle-align" *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">
+                    {{p.prize}}</td>
+                  <td class="middle-align" *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">
+                    <ng-container *ngIf="isEnoughMoney(p.prize); else notEnoughMoney">
+                      <button type="button" class="btn btn-sm btn-primary waves-effect waves-light" (click)="onSubmit(p)">
+                        Kup
+                      </button>
+                    </ng-container>
+                    <ng-template #notEnoughMoney>
+                      <h6 class="red-text">Brak wystarczających środków</h6>
+                    </ng-template>
+                  </td>
+                </tr>
+              </tbody>
+              <!--/.Body table-->
+            </table>
+            <mdb-table-pagination class="w-100" [tableEl]="tableEl" [searchDataSource]="products"></mdb-table-pagination>
+          </div>
+          <!--Table-->
+        </div>
+      </div>
+      <!--/.Items Table-->
+    </section>
+    <!--/.Item Table Section-->
+  </main>
+  <!--/.Content-->
+  <!--Footer-->
+  <footer>
+    <!--Footer Section-->
+    <app-footer></app-footer>
+    <!--/.Footer Section-->
+  </footer>
+  <!--/.Footer-->
+</div>
+<!--Shop-->

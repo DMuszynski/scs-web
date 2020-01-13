@@ -1,0 +1,23 @@
+<!--Download Modal-->
+<app-modal class="form-dark" role="document">
+  <!--Title-->
+  <header modal-name>
+    <strong>POBIERZ</strong>
+    <span class="blue-text font-weight-bold">
+      <strong> GRĘ</strong>
+    </span>
+  </header>
+  <!--/.Title-->
+  <!--Content-->
+  <main modal-body>
+    <div class="row d-flex mb-4">
+      <div class="text-center mb-3 col-md-12">
+        <button (click)="onSubmit()" mdbBtn block="true" class="waves-light btn-blue" [ngStyle]="{'border-radius': '40px'}" mdbWavesEffect>
+          <mdb-icon fas icon="download" class="px-1"></mdb-icon> Rozpocznij pobieranie<span class="sr-only">(current)</span>
+        </button>
+      </div>
+    </div>
+  </main>
+  <!--/.Content-->
+</app-modal>
+<!--/.Download Modal-->

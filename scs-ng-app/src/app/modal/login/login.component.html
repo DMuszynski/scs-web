@@ -1,0 +1,62 @@
+<!--Login Modal-->
+<app-modal class="form-dark" role="document">
+  <!--Title-->
+  <header modal-name>
+    <strong>ZALOGUJ</strong>
+    <span class="blue-text font-weight-bold">
+      <strong> SIĘ</strong>
+    </span>
+  </header>
+  <!--/.Title-->
+  <!--Content-->
+  <main modal-body>
+    <!--Error Message-->
+    <ng-container *ngIf="!isValidLogin">
+      <h6 class="text-center red-text font-weight-bold pb-4">
+        {{errorMessage}}
+      </h6>
+    </ng-container>
+    <!--/.Error Message-->
+    <!--Form login-->
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <!--Nick-->
+      <div class="md-form mb-5">
+        <mdb-icon fas icon="user" class="prefix"></mdb-icon>
+        <input type="text" id="nick" class="form-control white-text" mdbValidate mdbInput [formControl]="loginFormModalNick">
+        <label for="nick">Nazwa użytkownika</label>
+        <mdb-error *ngIf="loginFormModalNick.invalid && (loginFormModalNick.dirty || loginFormModalNick.touched)">
+          Podana nazwa użytkownika jest nieprawidłowa
+        </mdb-error>
+        <mdb-success *ngIf="loginFormModalNick.valid && (loginFormModalNick.dirty || loginFormModalNick.touched)">
+          Podana nazwa użytkownika spełnia wymagania
+        </mdb-success>
+      </div>
+      <!--/.Nick-->
+      <!--Password-->
+      <div class="md-form pb-3">
+        <mdb-icon fas icon="lock" class="prefix"></mdb-icon>
+        <input type="password" id="password" autocomplete="on" class="form-control white-text" mdbValidate mdbInput [formControl]="loginFormModalPassword">
+        <label for="password">Hasło</label>
+        <mdb-error *ngIf="(loginFormModalPassword.invalid && (loginFormModalPassword.dirty || loginFormModalPassword.touched))">
+          Podane hasło jest za krótkie
+        </mdb-error>
+        <mdb-success *ngIf="loginFormModalPassword.valid && (loginFormModalPassword.dirty || loginFormModalPassword.touched)">
+          Podane hasło spełnia wymagania
+        </mdb-success>
+      </div>
+      <!--/.Password-->
+      <!--Login button-->
+      <div class="row d-flex align-items-center mb-4">
+        <div class="text-center mb-3 col-md-12">
+          <button type="submit" mdbBtn block="true" class="waves-light btn-blue" [ngStyle]="{'border-radius': '40px'}" mdbWavesEffect>
+            <mdb-icon fas icon="user-check" class="px-1"></mdb-icon> Logowanie<span class="sr-only">(current)</span>
+          </button>
+        </div>
+      </div>
+      <!--/.Login button-->
+    </form>
+    <!--/.Form login-->
+  </main>
+  <!--/.Content-->
+</app-modal>
+<!--/.Login Modal-->

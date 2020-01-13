@@ -1,0 +1,27 @@
+<!--Modal-->
+<mdb-card class="modal-content" [ngStyle]="{'background-image': 'url(\'/assets/other/modal.jpg\')'}">
+  <div class="text-white rgba-black-strong py-5 px-5 z-depth-4">
+    <!--Title-->
+    <header class="text-center pb-3 pt-3">
+      <h3 class="modal-title w-100 font-weight-bold">
+        <ng-content select="[modal-name]"></ng-content>
+      </h3>
+    </header>
+    <!--/.Title-->
+    <!--Content-->
+    <main class="modal-body">
+      <ng-content select="[modal-body]"></ng-content>
+    </main>
+    <!--/.Content-->
+    <!--Footer-->
+    <footer class="row">
+      <div class="col-md-12">
+        <p class="font-small white-text d-flex justify-content-end">
+          <a (click)="closeModal()" class="ml-1 font-weight-bold"> WYJŚCIE</a>
+        </p>
+      </div>
+    </footer>
+    <!--/.Footer-->
+  </div>
+</mdb-card>
+<!--/.Modal-->

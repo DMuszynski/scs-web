@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Symulator Zawodów Pływackich</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.png">
+
+  <!-- Style wewnętrzne dla Preloadera -->
+  <style type="text/css">
+    * {
+      margin: 0;
+      user-select: none;
+    }
+    body {
+      background-color: black;
+    }
+    .preloader {
+      width: 100%;
+      height: 100vh;
+      background-color: black;
+    }
+    .app-loading {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .app-loading .logo{
+      width: 100px;
+      height: 45px;
+    }
+    .app-loading .logo img {
+      height: 100%;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <app-root>
+    <!-- Preloader -->
+    <div class="preloader app-loading"><div class="logo"><img src="assets/logo/scs.png"></div></div>
+  </app-root>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+  <script> new WOW().init(); </script>
+</body>
+</html>

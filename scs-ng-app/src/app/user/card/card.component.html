@@ -1,0 +1,41 @@
+<!--Card-->
+<mdb-card class="mt-4 wow fadeIn" data-wow-delay="0.2s" style="visibility: visible; animation-name: fadeIn; animation-delay: 0.2s;">
+  <!--Header-->
+  <mdb-card-header class="px-40 py-30">
+    <div class="row">
+      <!--First column-->
+      <div class="col-12">
+        <h4 class="font-weight-bold m-0">
+          <ng-content select="[card-header]"></ng-content>
+        </h4>
+      </div>
+      <!--/.First column-->
+    </div>
+  </mdb-card-header>
+  <!--/.Header-->
+  <!--Body-->
+  <mdb-card-body class="px-40 py-30">
+    <div class="row text-center">
+      <!--First column-->
+      <div class="col align-self-start">
+        <ng-content select="[card-first-column]"></ng-content>
+      </div>
+      <!--/.First column-->
+      <!--Second column-->
+      <div class="col align-self-center">
+        <ng-content select="[card-second-column]"></ng-content>
+      </div>
+      <!--/.Second column-->
+      <!--Third column-->
+      <div class="col align-self-end">
+        <ng-content select="[card-third-column]"></ng-content>
+      </div>
+      <!--/.Third column-->
+    </div>
+    <!--Other content-->
+    <ng-content select="[card-body]"></ng-content>
+    <!--Other content-->
+  </mdb-card-body>
+  <!--/.Body-->
+</mdb-card>
+<!--/.Card-->

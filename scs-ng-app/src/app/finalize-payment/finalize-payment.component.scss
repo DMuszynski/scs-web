@@ -1,0 +1,23 @@
+.background {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+.background .logo{
+  width: 400px;
+  height: 200px;
+}
+.background .logo img {
+  height: 100%;
+  width: 100%;
+}
+.title {
+  color: red;
+  clear: both;
+  margin: 10%;
+}
