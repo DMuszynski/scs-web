@@ -21,6 +21,10 @@ public class AttributeList {
     @NotNull
     private int resistance;
 
+    @NotNull
+    @Column(name = "available_points")
+    private int availablePoints;
+
     @OneToOne
     @JoinColumn(name = "character_id", nullable = false)
     private Character character;
@@ -63,5 +67,13 @@ public class AttributeList {
 
     public void setCharacter(Character character) {
         this.character = character;
+    }
+
+    public int getAvailablePoints() {
+        return availablePoints;
+    }
+
+    public void setAvailablePoints(int availablePoints) {
+        this.availablePoints = availablePoints;
     }
 }
