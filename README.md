@@ -26,7 +26,7 @@ The view shows the elements of the application interface
 <img src="screenshots/navigationLogged.png" width="1000">
 
 <br><h3>Download modal</h3><br>
-<img src="screenshots/downloadModal.png" width="1000">
+<img src="screenshots/downloadModal.png" width="500">
 
 <br><h3>Contact modal</h3><br>
 <img src="screenshots/contactModal.png" width="500">
@@ -35,4 +35,4 @@ The view shows the elements of the application interface
 <img src="screenshots/registerModal.png" width="500">
 
 <br><h3>Login modal</h3><br>
-<img src="screenshots/loginrModal.png" width="500">
+<img src="screenshots/loginModal.png" width="500">
