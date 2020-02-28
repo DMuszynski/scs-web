@@ -2,4 +2,11 @@
 Web application for 3D MMORPG game 
 
 <h2>View</h2>
-<img src="screenshots/home.png" width="500">
+
+Home page
+
+<img src="screenshots/home.png" width="1000">
+
+Home page
+
+<img src="screenshots/home.png" width="1000">
