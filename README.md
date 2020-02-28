@@ -19,8 +19,8 @@ The view shows the elements of the application interface
 <br><h3>Shop selected options page</h3><br>
 <img src="screenshots/shopSelectedOptions.png" width="1000">
 
-<br><h3>Navigation unlogged user</h3>
+<h3>Navigation unlogged user</h3>
 <img src="screenshots/navigationUnlogged.png" width="1000">
 
-<h3>Navigation logged user</h3><br>
+<h3>Navigation logged user</h3>
 <img src="screenshots/navigationLogged.png" width="1000">
