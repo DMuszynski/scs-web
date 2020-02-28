@@ -1,11 +1,10 @@
 # Swimming Competition Simulator (SCS) Web Application
 Web application for 3D MMORPG game 
 
-<h2>View</h2>
-
+<h2>View</h2><br>
 The view shows the elements of the application interface
 
-<h3>Home page</h3><br><br>
+<h3>Home page</h3><br>
 <img src="screenshots/home.png" width="1000">
 
 <br>User profile page<br><br>
