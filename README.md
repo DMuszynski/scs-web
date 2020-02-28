@@ -7,6 +7,10 @@ Home page
 
 <img src="screenshots/home.png" width="1000">
 
-Home page
+User profile page
 
-<img src="screenshots/home.png" width="1000">
+<img src="screenshots/profile.png" width="1000">
+
+Shop unselected options page
+
+<img src="screenshots/profile.png" width="1000">
