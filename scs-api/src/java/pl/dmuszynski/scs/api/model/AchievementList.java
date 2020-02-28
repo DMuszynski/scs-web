@@ -1,5 +1,8 @@
 package pl.dmuszynski.scs.api.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import jdk.jfr.Timespan;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.sql.Time;
@@ -22,11 +25,28 @@ public class AchievementList {
     @NotNull
     private int bronzeMedals;
 
+    @Timespan
     private Time bestTime;
 
     @OneToOne
     @JoinColumn(name = "character_id", nullable = false)
+    @JsonIgnore
     private Character character;
+
+    public AchievementList() {
+        this.id = 0L;
+        this.goldMedals = 0;
+        this.silverMedals = 0;
+        this.bronzeMedals = 0;
+
+        this.bestTime = null;
+        this.character = null;
+    }
+
+    public AchievementList(Character character) {
+        this();
+        this.character = character;
+    }
 
     public Long getId() {
         return id;

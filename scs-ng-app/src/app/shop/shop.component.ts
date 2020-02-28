@@ -5,7 +5,6 @@ import { ShopService } from "../services/shop.service";
 import { Category } from "../model/category";
 import { UserService } from "../services/user.service";
 import {Transaction} from "../model/transaction";
-import {User} from "../model/user";
 
 @Component({
   selector: 'app-shop',

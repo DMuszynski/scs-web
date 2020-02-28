@@ -29,8 +29,25 @@ public class CharacterServiceImpl implements CharacterService {
     }
 
     @Override
+    public Character findCharacterById(Long id) {
+        return characterRepository.findCharacterById(id);
+    }
+
+    @Override
+    @Transactional
+    public Character saveCharacter(Character character) {
+        return characterRepository.save(character);
+    }
+
+    @Override
     @Transactional
     public void deleteCharacter(Long id) {
         this.characterRepository.deleteCharacter(id);
+    }
+
+    @Override
+    @Transactional
+    public void updateCharacter(int level, int experience, int score, Long id) {
+        this.characterRepository.updateCharacter(level, experience, score, id);
     }
 }

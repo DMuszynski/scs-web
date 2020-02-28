@@ -1,5 +1,6 @@
 package pl.dmuszynski.scs.api.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
@@ -34,6 +35,9 @@ public class User {
     private boolean logged;
 
     @NotNull
+    private boolean firstLogin;
+
+    @NotNull
     @Column(name = "premium_currency")
     private int premiumCurrency;
 
@@ -48,6 +52,7 @@ public class User {
 
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
+    @JsonIgnore
     private Set<Role> roles;
 
     public static final class UserBuilder {
@@ -60,6 +65,7 @@ public class User {
         private String activationCode;
         private boolean active = false;
         private boolean logged = false;
+        private boolean firstLogin = true;
         private int premiumCurrency = 0;
 
         public UserBuilder id(Long id) {
@@ -102,6 +108,11 @@ public class User {
             return this;
         }
 
+        public UserBuilder firstLogin(boolean firstLogin) {
+            this.firstLogin = firstLogin;
+            return this;
+        }
+
         public UserBuilder premiumCurrency(int premiumCurrency) {
             this.premiumCurrency = premiumCurrency;
             return this;
@@ -125,6 +136,7 @@ public class User {
             user.created = this.created;
             user.active = this.active;
             user.logged = this.logged;
+            user.firstLogin = this.firstLogin;
             user.premiumCurrency = this.premiumCurrency;
             user.activationCode = this.activationCode;
             return user;
@@ -157,6 +169,10 @@ public class User {
 
     public boolean isLogged() {
         return logged;
+    }
+
+    public boolean isFirstLogin() {
+        return firstLogin;
     }
 
     public LocalDateTime getCreated() {

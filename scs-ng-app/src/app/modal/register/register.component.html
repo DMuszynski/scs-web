@@ -56,10 +56,10 @@
         <mdb-icon fas icon="lock" class="prefix"></mdb-icon>
         <input type="password" id="password" autocomplete="on" class="form-control white-text" mdbValidate mdbInput [formControl]="registerFormModalPassword">
         <label for="password">Hasło</label>
-        <mdb-error *ngIf="registerFormModalPassword.invalid && (registerFormModalPassword.dirty || registerFormModalPassword.touched)">
+        <mdb-error style="top:40px; bottom:unset" *ngIf="registerFormModalPassword.invalid && (registerFormModalPassword.dirty || registerFormModalPassword.touched)">
           Podane hasło jest za krótkie
         </mdb-error>
-        <mdb-success *ngIf="registerFormModalPassword.valid && (registerFormModalPassword.dirty || registerFormModalPassword.touched)">
+        <mdb-success style="top:40px; bottom:unset" *ngIf="registerFormModalPassword.valid && (registerFormModalPassword.dirty || registerFormModalPassword.touched)">
           Podane hasło spełnia wymagania
         </mdb-success>
       </div>

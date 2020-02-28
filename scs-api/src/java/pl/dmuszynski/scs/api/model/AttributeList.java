@@ -1,5 +1,7 @@
 package pl.dmuszynski.scs.api.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
@@ -27,7 +29,23 @@ public class AttributeList {
 
     @OneToOne
     @JoinColumn(name = "character_id", nullable = false)
+    @JsonIgnore
     private Character character;
+
+    public AttributeList() {
+        this.id = 0L;
+        this.agility = 5;
+        this.strength = 5;
+        this.resistance = 5;
+        this.availablePoints = 0;
+
+        this.character = null;
+    }
+
+    public AttributeList(Character character) {
+        this();
+        this.character = character;
+    }
 
     public Long getId() {
         return id;

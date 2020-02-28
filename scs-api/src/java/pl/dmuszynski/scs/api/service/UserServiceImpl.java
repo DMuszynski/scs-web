@@ -64,6 +64,16 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
+    public void updateUserLogged(boolean logged, Long id) {
+        this.userRepository.updateUserLogged(logged, id);
+    }
+
+    @Override
+    public void updateUserFirstLogin(boolean firstLogin, Long id) {
+        this.userRepository.updateUserFirstLogin(firstLogin, id);
+    }
+
+    @Override
     public void updateUserPassword(String password, Long id) {
         this.userRepository.updateUserPassword(password, id);
     }

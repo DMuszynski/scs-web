@@ -52,6 +52,24 @@ public class UserProfileController {
         }
     }
 
+    @PatchMapping(value = "/update/logged")
+    public void updateUserLogged(@RequestBody User user) {
+        try {
+            this.userService.updateUserLogged(user.isLogged(), user.getId());
+        } catch (ResourceNotFoundException exception) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, exception.getMessage(), exception);
+        }
+    }
+
+    @PatchMapping(value = "/update/firstLogin")
+    public void updateUserFirstLogin(@RequestBody User user) {
+        try {
+            this.userService.updateUserFirstLogin(user.isFirstLogin(), user.getId());
+        } catch (ResourceNotFoundException exception) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, exception.getMessage(), exception);
+        }
+    }
+
     @PatchMapping(value = "/update/password")
     public void updateUserPassword(@RequestBody User user) {
         try {
@@ -64,7 +82,7 @@ public class UserProfileController {
         }
     }
 
-    @DeleteMapping(value = "/{id}")
+    @DeleteMapping(value = "/delete/{id}")
     public void deleteUser(@PathVariable(value = "id") final Long id) {
         this.userService.deleteUser(id);
     }

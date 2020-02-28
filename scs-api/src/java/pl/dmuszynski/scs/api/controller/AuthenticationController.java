@@ -22,8 +22,8 @@ public class AuthenticationController {
     }
 
     @PostMapping(value = "/login")
-    @CrossOrigin(origins = "http://localhost:4200")
-    public void login(@RequestBody User user) {
+    @CrossOrigin
+    public void authenticationUser(@RequestBody User user) {
         try {
             User userExist = this.userService.findUserByNick(user.getNick());
             if (userExist == null)

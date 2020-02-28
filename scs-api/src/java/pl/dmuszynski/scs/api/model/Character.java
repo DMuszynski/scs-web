@@ -16,7 +16,7 @@ import java.time.LocalDateTime;
 public class Character {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "character_generator")
-    @SequenceGenerator(name="character_generator", sequenceName = "character_seq")
+    @SequenceGenerator(name = "character_generator", sequenceName = "character_seq")
     @Column(name = "character_id", unique = true, nullable = false)
     private Long id;
 
@@ -43,13 +43,32 @@ public class Character {
     @JsonIgnore
     private User user;
 
-    @OneToOne(mappedBy = "character")
+    @OneToOne(mappedBy = "character", cascade = CascadeType.ALL)
     @JsonIgnore
     private AttributeList attributeList;
 
-    @OneToOne(mappedBy = "character")
+    @OneToOne(mappedBy = "character", cascade = CascadeType.ALL)
     @JsonIgnore
     private AchievementList achievementList;
+
+    public Character() {
+        this.id = 0L;
+        this.name = "";
+        this.score = 0;
+        this.level = 1;
+        this.experience = 0;
+
+        this.user = null;
+        this.created = LocalDateTime.now();
+        this.attributeList = new AttributeList(this);
+        this.achievementList = new AchievementList(this);
+    }
+
+    public Character(String name, User user){
+        this();
+        this.name = name;
+        this.user = user;
+    }
 
     public Long getId() {
         return id;

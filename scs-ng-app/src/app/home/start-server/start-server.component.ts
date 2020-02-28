@@ -11,7 +11,7 @@ export class StartServerComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {
-    this.startServerDate = new Date('2020-02-01 GMT+2 08:00:00');
+    this.startServerDate = new Date('2020-04-01 GMT+2 08:00:00');
   }
 
   private countMsToStartFromDate(start: Date): number  {

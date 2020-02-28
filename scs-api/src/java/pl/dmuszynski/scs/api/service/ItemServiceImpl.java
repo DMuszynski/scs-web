@@ -5,6 +5,8 @@ import org.springframework.stereotype.Service;
 import pl.dmuszynski.scs.api.model.Item;
 import pl.dmuszynski.scs.api.repository.ItemRepository;
 
+import java.util.List;
+
 @Service
 public class ItemServiceImpl implements ItemService{
 
@@ -13,6 +15,16 @@ public class ItemServiceImpl implements ItemService{
     @Autowired
     public ItemServiceImpl(final ItemRepository itemRepository) {
         this.itemRepository = itemRepository;
+    }
+
+    @Override
+    public List<Item> findAll() {
+        return this.itemRepository.findAll();
+    }
+
+    @Override
+    public Item findItemById(Long id) {
+        return this.itemRepository.findItemById(id);
     }
 
     @Override

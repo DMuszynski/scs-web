@@ -1,6 +1,5 @@
 package pl.dmuszynski.scs.api.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
@@ -16,20 +15,28 @@ public class Equipment {
     @Column(name = "equipment_id", unique = true, nullable = false)
     private Long id;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @ManyToOne(fetch = FetchType.EAGER, optional = false)
     @JoinColumn(name = "character_id", nullable = false)
     @OnDelete(action = OnDeleteAction.CASCADE)
-    @JsonIgnore
     private Character character;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @ManyToOne(fetch = FetchType.EAGER, optional = false)
     @JoinColumn(name = "item_id", nullable = false)
     @OnDelete(action = OnDeleteAction.CASCADE)
-    @JsonIgnore
     private Item item;
 
     @NotNull
     private boolean equipped;
+
+    public Equipment(){
+        this.equipped = false;
+    }
+
+    public Equipment(Character character, Item item) {
+        this();
+        this.character = character;
+        this.item = item;
+    }
 
     public Long getId() {
         return id;

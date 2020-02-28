@@ -14,15 +14,22 @@ public class PremiumEquipment {
     @Column(name = "premium_equipment_id", unique = true, nullable = false)
     private Long id;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @ManyToOne(fetch = FetchType.EAGER, optional = false)
     @JoinColumn(name = "user_id", nullable = false)
     @OnDelete(action = OnDeleteAction.CASCADE)
     private User user;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @ManyToOne(fetch = FetchType.EAGER, optional = false)
     @JoinColumn(name = "item_id", nullable = false)
     @OnDelete(action = OnDeleteAction.CASCADE)
     private Item item;
+
+    public PremiumEquipment() { }
+
+    public PremiumEquipment(User user, Item item) {
+        this.user = user;
+        this.item = item;
+    }
 
     public Long getId() {
         return id;

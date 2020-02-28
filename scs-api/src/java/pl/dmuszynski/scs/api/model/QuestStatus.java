@@ -31,6 +31,22 @@ public class QuestStatus {
     @JsonIgnore
     private Character character;
 
+    public QuestStatus() {
+        this.id = 0L;
+        this.number = 0;
+        this.taken = true;
+        this.completed = false;
+
+        this.character = null;
+    }
+
+    public QuestStatus(int number, Character character) {
+        this();
+
+        this.number = number;
+        this.character = character;
+    }
+
     public Long getId() {
         return id;
     }

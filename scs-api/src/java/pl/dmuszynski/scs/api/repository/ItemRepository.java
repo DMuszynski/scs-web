@@ -6,5 +6,6 @@ import pl.dmuszynski.scs.api.model.Item;
 
 @Repository
 public interface ItemRepository extends JpaRepository<Item, Long> {
+    Item findItemById(Long id);
     Item findItemByName(String name);
 }

@@ -11,6 +11,8 @@ public interface UserService {
     void updateUserActivation(Boolean active, String activationCode);
     void updateUserNick(String nick, Long id);
     void updateUserEmail(String email, Long id);
+    void updateUserLogged(boolean logged, Long id);
+    void updateUserFirstLogin(boolean firstLogin, Long id);
     void updateUserPassword(String password, Long id);
     void updateUser(User user);
     void deleteUser(Long id);

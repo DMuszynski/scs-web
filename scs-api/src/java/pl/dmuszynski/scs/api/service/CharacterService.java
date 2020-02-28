@@ -8,5 +8,9 @@ public interface CharacterService {
     List<Character> findAllByUserId(Long id);
     List<Character> findAll();
 
+    Character findCharacterById(Long id);
+    Character saveCharacter(Character character);
+
     void deleteCharacter(Long id);
+    void updateCharacter(int level, int experience, int score, Long id);
 }

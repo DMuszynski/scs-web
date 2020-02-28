@@ -37,10 +37,10 @@
         <mdb-icon fas icon="lock" class="prefix"></mdb-icon>
         <input type="password" id="password" autocomplete="on" class="form-control white-text" mdbValidate mdbInput [formControl]="loginFormModalPassword">
         <label for="password">Hasło</label>
-        <mdb-error *ngIf="(loginFormModalPassword.invalid && (loginFormModalPassword.dirty || loginFormModalPassword.touched))">
+        <mdb-error style="top:40px; bottom:unset" *ngIf="(loginFormModalPassword.invalid && (loginFormModalPassword.dirty || loginFormModalPassword.touched))">
           Podane hasło jest za krótkie
         </mdb-error>
-        <mdb-success *ngIf="loginFormModalPassword.valid && (loginFormModalPassword.dirty || loginFormModalPassword.touched)">
+        <mdb-success style="top:40px; bottom:unset" *ngIf="loginFormModalPassword.valid && (loginFormModalPassword.dirty || loginFormModalPassword.touched)">
           Podane hasło spełnia wymagania
         </mdb-success>
       </div>
