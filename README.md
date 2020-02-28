@@ -13,4 +13,8 @@ User profile page
 
 Shop unselected options page
 
-<img src="screenshots/profile.png" width="1000">
+<img src="screenshots/shopNoSelection.png" width="1000">
+
+Shop selected options page
+
+<img src="screenshots/shopSelectedOptions.png" width="1000">
