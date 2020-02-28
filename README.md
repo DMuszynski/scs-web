@@ -24,3 +24,15 @@ The view shows the elements of the application interface
 
 <h3>Navigation logged user</h3>
 <img src="screenshots/navigationLogged.png" width="1000">
+
+<br><h3>Download modal</h3><br>
+<img src="screenshots/downloadModal.png" width="1000">
+
+<br><h3>Contact modal</h3><br>
+<img src="screenshots/contactModal.png" width="500">
+
+<br><h3>Register modal</h3><br>
+<img src="screenshots/registerModal.png" width="500">
+
+<br><h3>Login modal</h3><br>
+<img src="screenshots/loginrModal.png" width="500">
