@@ -1,5 +1,5 @@
 # Swimming Competition Simulator (SCS) Web Application
-Web application offering online store services for 3D MMORPG games
+Web application offering online store services for 3D MMORPG simulation game.
 
 <h2>View</h2>
 The view shows the elements of the application interface.
