@@ -12,7 +12,8 @@ The home page provides example information about a simulation game<br><br>
 The user's profile page stores information about the user and allows the exchange of personal data, the purchase of a virtual currency via PayPal<br><br>
 <img src="screenshots/profile.png" width="1000">
 
-<br><h3>Shop unselected options page</h3><br>
+<h3>Shop unselected options page</h3>
+The online store website offers services for buying items later available in the simulation game<br><br>
 <img src="screenshots/shopNoSelection.png" width="1000">
 
 <br><h3>Shop selected options page</h3><br>
