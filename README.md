@@ -13,7 +13,7 @@ The user's profile page stores information about the user and allows the exchang
 <img src="screenshots/profile.png" width="1000">
 
 <h3>PayPal confirmation</h3>
-confirmation of the premium currency purchase<br><br>
+Confirmation screen of the premium currency purchase<br><br>
 <img src="screenshots/paypal.png" width="1000">
 
 <h3>Shop unselected options page</h3>
