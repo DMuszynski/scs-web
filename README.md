@@ -2,18 +2,18 @@
 Web application for 3D MMORPG game 
 
 <h2>View</h2>
-The view shows the elements of the application interface
+The view shows the elements of the application interface.
 
 <h3>Home page</h3>
-The home page provides example information about a simulation game<br><br>
+The home page provides example information about a simulation game.<br><br>
 <img src="screenshots/home.png" width="1000">
 
 <h3>User profile page</h3>
-The user's profile page stores information about the user and allows the exchange of personal data, the purchase of a virtual currency via PayPal<br><br>
+The user's profile page stores information about the user and allows the exchange of personal data, the purchase of a virtual currency via PayPal.<br><br>
 <img src="screenshots/profile.png" width="1000">
 
 <h3>Shop unselected options page</h3>
-The online store website offers services for buying items later available in the simulation game<br><br>
+The online store website offers search, sorting and buying services for items later available in the simulation game.<br><br>
 <img src="screenshots/shopNoSelection.png" width="1000">
 
 <br><h3>Shop selected options page</h3><br>
