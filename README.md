@@ -38,8 +38,10 @@ Dialogue window for downloading the game client.<br><br>
 Dialogue window for sending contact messages to the game administrator's mail.<br><br>
 <img src="screenshots/contactModal.png" width="400">
 
-<br><h3>Register modal</h3><br>
+<h3>Register modal</h3>
+Dialogue window for registering an account in the web application and in the game.<br><br>
 <img src="screenshots/registerModal.png" width="400">
 
-<br><h3>Login modal</h3><br>
+<h3>Login modal</h3>
+Dialogue window for logging into the account in the web application.<br><br>
 <img src="screenshots/loginModal.png" width="400">
