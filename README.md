@@ -30,10 +30,11 @@ The ranking page presents player results tables sorted in descending order.<br><
 <h3>Navigation logged user</h3>
 <img src="screenshots/navigationLogged.png" width="1000">
 
-<br><h3>Download modal</h3><br>
+<h3>Download modal</h3>
+Dialogue window for downloading the game client.<br><br>
 <img src="screenshots/downloadModal.png" width="400">
 
-<br><h3>Contact modal</h3><br>
+<h3>Contact modal</h3>
 <img src="screenshots/contactModal.png" width="400">
 
 <br><h3>Register modal</h3><br>
