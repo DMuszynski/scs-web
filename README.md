@@ -20,7 +20,8 @@ The online store website offers search, sorting and buying services for items la
 This screen shows the product found in the selected category.<br><br>
 <img src="screenshots/shopSelectedOptions.png" width="1000">
 
-<br><h3>Character ranking page</h3><br>
+<h3>Character ranking page</h3>
+The ranking page presents player results tables sorted in descending order.<br><br>
 <img src="screenshots/ranking.png" width="1000">
 
 <h3>Navigation unlogged user</h3>
