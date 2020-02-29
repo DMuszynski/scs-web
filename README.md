@@ -8,7 +8,7 @@ The view shows the elements of the application interface
 The home page provides example information about a simulation game<br><br>
 <img src="screenshots/home.png" width="1000">
 
-<br><h3>User profile page</h3>
+<h3>User profile page</h3>
 The user's profile page stores information about the user and allows the exchange of personal data, the purchase of a virtual currency via PayPal<br><br>
 <img src="screenshots/profile.png" width="1000">
 
