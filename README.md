@@ -35,6 +35,7 @@ Dialogue window for downloading the game client.<br><br>
 <img src="screenshots/downloadModal.png" width="400">
 
 <h3>Contact modal</h3>
+Dialogue window for sending contact messages to the game administrator's mail.<br><br>
 <img src="screenshots/contactModal.png" width="400">
 
 <br><h3>Register modal</h3><br>
