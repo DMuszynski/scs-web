@@ -16,7 +16,8 @@ The user's profile page stores information about the user and allows the exchang
 The online store website offers search, sorting and buying services for items later available in the simulation game.<br><br>
 <img src="screenshots/shopNoSelection.png" width="1000">
 
-<br><h3>Shop selected options page</h3><br>
+<h3>Shop selected options page</h3>
+This screen shows the product found in the selected category.<br><br>
 <img src="screenshots/shopSelectedOptions.png" width="1000">
 
 <br><h3>Character ranking page</h3><br>
