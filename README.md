@@ -4,8 +4,8 @@ Web application for 3D MMORPG game
 <h2>View</h2>
 The view shows the elements of the application interface
 
-<h3>Home page</h3><br>
-The home page provides example information about a simulation game<br>
+<h3>Home page</h3>
+The home page provides example information about a simulation game
 <img src="screenshots/home.png" width="1000">
 
 <br><h3>User profile page</h3><br>
