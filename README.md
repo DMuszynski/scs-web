@@ -5,6 +5,7 @@ Web application for 3D MMORPG game
 The view shows the elements of the application interface
 
 <h3>Home page</h3><br>
+The home page provides example information about a simulation game<br>
 <img src="screenshots/home.png" width="1000">
 
 <br><h3>User profile page</h3><br>
@@ -26,13 +27,13 @@ The view shows the elements of the application interface
 <img src="screenshots/navigationLogged.png" width="1000">
 
 <br><h3>Download modal</h3><br>
-<img src="screenshots/downloadModal.png" width="500">
+<img src="screenshots/downloadModal.png" width="400">
 
 <br><h3>Contact modal</h3><br>
-<img src="screenshots/contactModal.png" width="500">
+<img src="screenshots/contactModal.png" width="400">
 
 <br><h3>Register modal</h3><br>
-<img src="screenshots/registerModal.png" width="500">
+<img src="screenshots/registerModal.png" width="400">
 
 <br><h3>Login modal</h3><br>
-<img src="screenshots/loginModal.png" width="500">
+<img src="screenshots/loginModal.png" width="400">
