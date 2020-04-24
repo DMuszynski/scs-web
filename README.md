@@ -9,7 +9,7 @@ The view shows the elements of the application interface.
 
 <h3>Home page</h3>
 The home page provides example information about a simulation game.<br><br>
-<img src="screenshots/home.png" width="1000">
+<img src="etc/screenshots/home.png" width="1000">
 
 <h3>User profile page</h3>
 The user's profile page stores information about the user and allows the exchange of personal data, the purchase of a virtual currency via PayPal.<br><br>
@@ -39,7 +39,7 @@ The ranking page presents player results tables sorted in descending order.<br><
 
 <h3>Download modal</h3>
 Dialogue window for downloading the game client.<br><br>
-<img src="screenshots/downloadModal.png" width="400">
+<img src="etc/screenshots/downloadModal.png" width="400">
 
 <h3>Contact modal</h3>
 Dialogue window for sending contact messages to the game administrator's mail.<br><br>
